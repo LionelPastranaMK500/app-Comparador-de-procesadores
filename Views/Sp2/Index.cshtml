@@ -1,0 +1,50 @@
+﻿@model IEnumerable<app_Comparador_de_procesadores.Models.spPuntajeProcesadores>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Resumen de Puntajes</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Añadir Nuevo Puntaje</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.First().Marca)</th>
+            <th>@Html.DisplayNameFor(model => model.First().Prueba)</th>
+            <th>@Html.DisplayNameFor(model => model.First().Promedio_Puntaje)</th>
+            <th>@Html.DisplayNameFor(model => model.First().Puntaje_Maximo)</th>
+            <th>@Html.DisplayNameFor(model => model.First().Puntaje_Minimo)</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Marca)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Prueba)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Promedio_Puntaje)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Puntaje_Maximo)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Puntaje_Minimo)</td>
+                    <td>
+                        @Html.ActionLink("Editar", "Edit", new { id = item.Marca }, new { @class = "btn btn-warning btn-sm" }) |
+                        @Html.ActionLink("Detalles", "Details", new { id = item.Marca }, new { @class = "btn btn-info btn-sm" }) |
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.Marca }, new { @class = "btn btn-danger btn-sm" })
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="6" class="text-center"><strong>No hay datos disponibles.</strong></td>
+            </tr>
+        }
+    </tbody>
+</table>

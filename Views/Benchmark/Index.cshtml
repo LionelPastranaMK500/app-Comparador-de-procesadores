@@ -1,0 +1,34 @@
+﻿@model IEnumerable<app_Comparador_de_procesadores.Models.Benchmark>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Resultados de Benchmarks</h1>
+
+<p>
+    <a asp-action="Create">Nuevo Benchmark</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.First().id)</th>
+            <th>@Html.DisplayNameFor(model => model.First().procesador_id)</th>
+            <th>@Html.DisplayNameFor(model => model.First().prueba)</th>
+            <th>@Html.DisplayNameFor(model => model.First().puntaje)</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.id)</td>
+                    <td>@Html.DisplayFor(modelItem => item.procesador_id)</td>
+                    <td>@Html.DisplayFor(modelItem => item.prueba)</td>
+                    <td>@Html.DisplayFor(modelItem => item.puntaje)</td>
+                </tr>
+        }
+    </tbody>
+</table>

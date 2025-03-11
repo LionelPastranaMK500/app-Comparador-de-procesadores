@@ -1,0 +1,48 @@
+﻿@model IEnumerable<app_Comparador_de_procesadores.Models.Procesador>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Comparador de procesadores</h1>
+
+<p>
+    <a asp-action="Create">Nuevo Procesador</a>
+</p>
+@if (Model == null || !Model.Any())
+{
+    <h3>No hay datos disponibles en la base de datos.</h3>
+}
+else
+{
+    <h2>Comparación de Procesadores Intel vs AMD</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Marca</th>
+                <th>Núcleos</th>
+                <th>Hilos</th>
+                <th>Frecuencia Base</th>
+                <th>Frecuencia Turbo</th>
+                <th>TDP</th>
+                <th>Año de Lanzamiento</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Nombre</td>
+                    <td>@item.Marca</td>
+                    <td>@item.Nucleos</td>
+                    <td>@item.Hilos</td>
+                    <td>@item.FrecuenciaBase GHz</td>
+                    <td>@item.FrecuenciaTurbo GHz</td>
+                    <td>@item.Tdp W</td>
+                    <td>@item.Lanzamiento</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
