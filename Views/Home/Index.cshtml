@@ -1,8 +1,81 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Comparativa de Procesadores Intel y AMD Ryzen";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-center mt-5 mb-5 fade-in">
+    <h1 class="welcome-title">Bienvenido a la Comparativa de Procesadores</h1>
+    <p class="welcome-subtitle">
+        Explora y compara las diferencias y similitudes entre los procesadores de Intel y AMD Ryzen.
+    </p>
+
+    <div class="row justify-content-center mb-4">
+        <div class="col-md-12 d-flex align-items-center justify-content-center" style="gap: 10rem;">
+            <!-- Logo de Intel -->
+            <div class="intel-logo">
+                <img src="~/images/intel-logo.png" alt="Intel Logo" class="img-fluid logo-img">
+            </div>
+            <!-- Logo de AMD -->
+            <div class="amd-logo">
+                <img src="~/images/amd-logo.png" alt="AMD Ryzen Logo" class="img-fluid logo-img">
+            </div>
+        </div>
+    </div>
+
+    <!-- Descripción de la web -->
+    <div class="mb-5">
+        <p class="card-text description-text">
+            Esta web te permite comparar las características técnicas, rendimiento y benchmarks de los procesadores más populares del mercado.
+            Elige una opción para comenzar:
+        </p>
+    </div>
+
+    <!-- Opciones de comparación -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h2 class="card-title card-title-blue">Benchmark</h2>
+                        <p class="card-text">Compara el rendimiento de los procesadores en diferentes benchmarks.</p>
+                        <a href="/Benchmark" class="btn btn-block custom-btn">
+                            <i class="fas fa-chart-bar"></i> Ver Puntuación
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h2 class="card-title card-title-green">Procesador</h2>
+                        <p class="card-text">Descubre las características principales de los procesadores Intel y AMD Ryzen.</p>
+                        <a href="/Procesador" class="btn btn-block custom-btn-green">
+                            <i class="fas fa-microchip"></i> Ver Procesadores
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h2 class="card-title card-title-purple">Lista Completa</h2>
+                        <p class="card-text">Compara los procesadores junto con sus resultados en benchmarks.</p>
+                        <a href="/Sp1" class="btn btn-block custom-btn-purple">
+                            <i class="fas fa-balance-scale"></i> Ver Lista Completa
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h2 class="card-title card-title-orange">Resumen</h2>
+                        <p class="card-text">Promedio de benchmarks basado en puntuaciones mínimas y máximas.</p>
+                        <a href="/Sp2" class="btn btn-block custom-btn-orange">
+                            <i class="fas fa-file-alt"></i> Ver Resumen
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

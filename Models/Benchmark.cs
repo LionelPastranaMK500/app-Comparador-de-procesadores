@@ -6,5 +6,6 @@
         public int procesador_id { get; set; }
         public string prueba { get; set; }
         public int puntaje { get; set; }
+        public string nombre_procesador { get; set; }
     }
 }

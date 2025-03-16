@@ -1,4 +1,4 @@
-﻿using app_Comparador_de_procesadores.Models;
+﻿using app_Comparador_de_procesadores.data;
 using Microsoft.AspNetCore.Mvc;
 
 namespace app_Comparador_de_procesadores.Controllers

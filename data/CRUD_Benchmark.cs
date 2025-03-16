@@ -1,7 +1,7 @@
-﻿using app_Comparador_de_procesadores.data;
+﻿using app_Comparador_de_procesadores.Models;
 using MySql.Data.MySqlClient;
 
-namespace app_Comparador_de_procesadores.Models
+namespace app_Comparador_de_procesadores.data
 {
     public class CRUD_Benchmark
     {
@@ -15,7 +15,7 @@ namespace app_Comparador_de_procesadores.Models
             try
             {
                 conn.Open();
-                string query = "SELECT * FROM benchmark";
+                string query = "CALL ObtenerResultadosConNombres()";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
@@ -24,7 +24,7 @@ namespace app_Comparador_de_procesadores.Models
                     lista.Add(new Benchmark
                     {
                         id = reader.GetInt32("id"),
-                        procesador_id = reader.GetInt32("procesador_id"),
+                        nombre_procesador = reader.GetString("nombre_procesador"),
                         prueba = reader.GetString("prueba"),
                         puntaje = reader.GetInt32("puntaje")
                     });

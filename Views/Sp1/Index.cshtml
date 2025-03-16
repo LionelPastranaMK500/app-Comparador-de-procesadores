@@ -3,54 +3,61 @@
 @{
     ViewData["Title"] = "Index";
 }
-<h1>Comparación de Procesadores</h1>
 
-<p>
-    <a asp-action="Create" class="btn btn-primary">Añadir Nuevo Procesador</a>
-</p>
+<h1 class="text-center mb-4">Comparación de Procesadores</h1>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>@Html.DisplayNameFor(model => model.First().Id)</th>
-            <th>@Html.DisplayNameFor(model => model.First().Nombre)</th>
-            <th>@Html.DisplayNameFor(model => model.First().Marca)</th>
-            <th>@Html.DisplayNameFor(model => model.First().Nucleos)</th>
-            <th>@Html.DisplayNameFor(model => model.First().Hilos)</th>
-            <th>@Html.DisplayNameFor(model => model.First().FrecuenciaBase)</th>
-            <th>@Html.DisplayNameFor(model => model.First().FrecuenciaTurbo)</th>
-            <th>@Html.DisplayNameFor(model => model.First().Tdp)</th>
-            <th>@Html.DisplayNameFor(model => model.First().Lanzamiento)</th>
-            <th>@Html.DisplayNameFor(model => model.First().Prueba)</th>
-            <th>@Html.DisplayNameFor(model => model.First().Puntaje)</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        @if (Model != null && Model.Any())
-        {
-            @foreach (var item in Model)
+<div class="table-container">
+    <table class="table table-bordered table-hover table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>@Html.DisplayNameFor(model => model.First().Nombre)</th>
+                <th>@Html.DisplayNameFor(model => model.First().Marca)</th>
+                <th>@Html.DisplayNameFor(model => model.First().Nucleos)</th>
+                <th>@Html.DisplayNameFor(model => model.First().Hilos)</th>
+                <th>@Html.DisplayNameFor(model => model.First().FrecuenciaBase)</th>
+                <th>@Html.DisplayNameFor(model => model.First().FrecuenciaTurbo)</th>
+                <th>TDP</th>
+                <th>@Html.DisplayNameFor(model => model.First().Lanzamiento)</th>
+                <th>@Html.DisplayNameFor(model => model.First().Prueba)</th>
+                <th>@Html.DisplayNameFor(model => model.First().Puntaje)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Id)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+                        <td>
+                            @if (item.Marca == "Intel")
+                            {
+                                <img src="~/images/intel-logo.png" alt="Intel" class="brand-logo" />
+                            }
+                            else if (item.Marca == "AMD")
+                            {
+                                <img src="~/images/amd-logo.png" alt="AMD" class="brand-logo" />
+                            }
+                        </td>
+                        <td>@Html.DisplayFor(modelItem => item.Nucleos)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Hilos)</td>
+                        <td>@Html.DisplayFor(modelItem => item.FrecuenciaBase) GHz</td>
+                        <td>@Html.DisplayFor(modelItem => item.FrecuenciaTurbo) GHz</td>
+                        <td>@Html.DisplayFor(modelItem => item.Tdp) W</td>
+                        <td>@Html.DisplayFor(modelItem => item.Lanzamiento)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Prueba)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Puntaje)</td>
+                    </tr>
+                }
+            }
+            else
             {
                 <tr>
-                    <td>@Html.DisplayFor(modelItem => item.Id)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Marca)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Nucleos)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Hilos)</td>
-                    <td>@Html.DisplayFor(modelItem => item.FrecuenciaBase)</td>
-                    <td>@Html.DisplayFor(modelItem => item.FrecuenciaTurbo)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Tdp)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Lanzamiento)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Prueba)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Puntaje)</td>
+                    <td colspan="12" class="text-center"><strong>No hay datos disponibles.</strong></td>
                 </tr>
             }
-        }
-        else
-        {
-            <tr>
-                <td colspan="12" class="text-center"><strong>No hay datos disponibles.</strong></td>
-            </tr>
-        }
-    </tbody>
-</table>
+        </tbody>
+    </table>
+</div>

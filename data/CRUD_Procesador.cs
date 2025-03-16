@@ -1,6 +1,6 @@
-﻿using app_Comparador_de_procesadores.data;
+﻿using app_Comparador_de_procesadores.Models;
 using MySql.Data.MySqlClient;
-namespace app_Comparador_de_procesadores.Models
+namespace app_Comparador_de_procesadores.data
 {
     public class CRUD_Procesador
     {
